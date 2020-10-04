@@ -1,3 +1,4 @@
 ﻿Design Pattern:
 - Unit of work
 - repository
+- Factory
