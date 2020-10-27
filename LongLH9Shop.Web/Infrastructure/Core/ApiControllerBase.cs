@@ -23,10 +23,9 @@ namespace LongLH9Shop.Web.Infrastructure.Core
             this._errorService = errorService;
         }
 
-        protected HttpRequestMessage CreateHttpResponse(HttpRequestMessage requestMessage, Func<HttpResponseMessage> function)
+        protected HttpResponseMessage CreateHttpResponse(HttpRequestMessage requestMessage, Func<HttpResponseMessage> function)
         {
             HttpResponseMessage response = null;
-
             try
             {
                 response = function.Invoke();
@@ -54,7 +53,6 @@ namespace LongLH9Shop.Web.Infrastructure.Core
                 LogError(ex);
                 response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
             }
-
             return response;
         }
 

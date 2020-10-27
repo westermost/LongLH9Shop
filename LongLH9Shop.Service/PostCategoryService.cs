@@ -11,11 +11,11 @@ namespace LongLH9Shop.Service
 {
     public interface IPostCategoryService
     {
-        void Add(PostCategory postCategory);
+        PostCategory Add(PostCategory postCategory);
 
         void Update(PostCategory postCategory);
 
-        void Delete(int id);
+        PostCategory Delete(int id);
 
         IEnumerable<PostCategory> GetAll();
 
@@ -23,7 +23,7 @@ namespace LongLH9Shop.Service
 
         PostCategory GetById(int id);
 
-        void SaveChanges();
+        void Save();
     }
 
     public class PostCategoryService : IPostCategoryService
@@ -37,14 +37,14 @@ namespace LongLH9Shop.Service
             this._unitOfWork = unitOfWork;
         }
 
-        public void Add(PostCategory postCategory)
+        PostCategory IPostCategoryService.Add(PostCategory postCategory)
         {
-            _postCategoryRepository.Add(postCategory);
+            return _postCategoryRepository.Add(postCategory);
         }
 
-        public void Delete(int id)
+        PostCategory IPostCategoryService.Delete(int id)
         {
-            _postCategoryRepository.Delete(id);
+            return _postCategoryRepository.Delete(id);
         }
 
         public IEnumerable<PostCategory> GetAll()
@@ -62,7 +62,7 @@ namespace LongLH9Shop.Service
             return _postCategoryRepository.GetSingleById(id);
         }
 
-        public void SaveChanges()
+        public void Save()
         {
             _unitOfWork.Commit();
         }

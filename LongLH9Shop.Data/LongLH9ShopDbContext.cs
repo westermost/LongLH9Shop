@@ -1,4 +1,5 @@
 ﻿using LongLH9Shop.Model.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LongLH9Shop.Data
 {
-    public class LongLH9ShopDbContext : DbContext
+    public class LongLH9ShopDbContext : IdentityDbContext<ApplicationUser>
     {
         public LongLH9ShopDbContext() : base("LongLH9ShopConnection")
         {
@@ -31,9 +32,16 @@ namespace LongLH9Shop.Data
         public DbSet<VisitorStatistic> VisitorStatistics { set; get; }
         public DbSet<Error> Errors { set; get; }
 
+        public static LongLH9ShopDbContext Create()
+        {
+            return new LongLH9ShopDbContext();
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            //modelBuilder.Entity<IdentityUserRole>().HasKey(i => i.UserId);
+            //modelBuilder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
         }
     }
 }
