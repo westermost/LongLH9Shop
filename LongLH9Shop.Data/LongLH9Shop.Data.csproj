@@ -97,6 +97,10 @@
     <Compile Include="Migrations\202010271505182_Intergrate-AspnetIdentity.Designer.cs">
       <DependentUpon>202010271505182_Intergrate-AspnetIdentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010311518394_change.cs" />
+    <Compile Include="Migrations\202010311518394_change.Designer.cs">
+      <DependentUpon>202010311518394_change.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
@@ -141,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010271505182_Intergrate-AspnetIdentity.resx">
       <DependentUpon>202010271505182_Intergrate-AspnetIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010311518394_change.resx">
+      <DependentUpon>202010311518394_change.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
